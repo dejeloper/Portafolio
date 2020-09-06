@@ -1,0 +1,61 @@
+{% extends "layout.twig" %}
+{% block title %}Add Project{% endblock %}
+{% block navbar %}
+<div class="d-flex flex-column flex-md-row align-items-center px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">Jhonatan Guerrero</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="/Portafolio/admin">Admin</a>
+    <a class="p-2 text-dark" href="/Portafolio/">Portafolio</a>
+  </nav>
+  <a class="btn btn-outline-info m-2" href="/Portafolio/logout">LogOut</a>
+</div>
+{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col">
+    <form action="/Portafolio/projects/add" method="POST" enctype="multipart/form-data">
+      <div class="row justify-content-md-center">
+        <div class="col-md-6">
+          <h1>Add Project</h1>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="titleProject" name="titleProject"
+              aria-describedby="titleHelp" />
+            <small id="titleHelp" class="form-text text-muted">New Project Title.</small>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="descriptionProject" name="descriptionProject"
+              aria-describedby="descriptionHelp" />
+            <small id="descriptionHelp" class="form-text text-muted">New Project Description.</small>
+          </div>
+          <div class="form-group files">
+            <label>Image</label>
+            <input type="file" accept="image/*" class="form-control" id="imageProject" name="imageProject"
+              aria-describedby="imageProject">
+            <small id="imageHelp" class="form-text text-muted">Upload Image of New Project.</small>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-4 offset-4">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+      <br />
+      {% if responseMensaje != "" %}
+      <div class="row justify-content-around">
+        <div class="col-md-6">
+          <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{ responseMensaje }}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}

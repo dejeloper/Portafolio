@@ -1,0 +1,69 @@
+{% extends "layout.twig" %}
+{% block title %}Admin{% endblock %}
+{% block navbar %}
+<div class="d-flex flex-column flex-md-row align-items-center px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">Jhonatan Guerrero</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="#">Admin</a>
+    <a class="p-2 text-dark" href="/Portafolio/">Portafolio</a>
+  </nav>
+  <a class="btn btn-outline-info m-2" href="/Portafolio/logout">LogOut</a>
+</div>
+{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col">
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <h1>Dashboard</h1>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="card">
+                <div class="text-center card-image">
+                  <i class="fas fa-user fa-5x"></i>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Users</h5>
+                  <a href="/Portafolio/users/add" class="btn btn-info btn-block">Add Users</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="card">
+                <div class="text-center card-image">
+                  <i class="fas fa-briefcase fa-5x"></i>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Jobs</h5>
+                  <a href="/Portafolio/jobs/add" class="btn btn-info btn-block">Add Jobs</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xl-4">
+              <div class="card">
+                <div class="text-center card-image">
+                  <i class="fas fa-code fa-5x"></i>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Projects</h5>
+                  <a href="/Portafolio/projects/add" class="btn btn-info btn-block">Add Projects</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {# <ul>
+            <li><a href="/users/add">Add Users</a></li>
+            <li><a href="/jobs/add">Add Jobs</a></li>
+            <li><a href="/projects/add">Add Projects</a></li>
+          </ul> #}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

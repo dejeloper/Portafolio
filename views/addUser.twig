@@ -1,0 +1,71 @@
+{% extends "layout.twig" %}
+{% block title %}Add User{% endblock %}
+{% block navbar %}
+<div class="d-flex flex-column flex-md-row align-items-center px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">Jhonatan Guerrero</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="/Portafolio/admin">Admin</a>
+    <a class="p-2 text-dark" href="/Portafolio/">Portafolio</a>
+  </nav>
+  <a class="btn btn-outline-info m-2" href="/Portafolio/logout">LogOut</a>
+</div>
+{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col">
+    <form action="/Portafolio/users/add" method="POST" enctype="multipart/form-data">
+      <div class="row justify-content-md-center">
+        <div class="col-md-6">
+          <h1>Add User</h1>
+          <div class="form-group">
+            <label for="firstNameUser">First Name</label>
+            <input type="text" class="form-control" id="firstNameUser" name="firstNameUser"
+              aria-describedby="firstNameHelp" />
+            <small id="firstNameHelp" class="form-text text-muted">New User First Name.</small>
+          </div>
+          <div class="form-group">
+            <label for="lastNameUser">Last Name</label>
+            <input type="text" class="form-control" id="lastNameUser" name="lastNameUser"
+              aria-describedby="lastNameHelp" />
+            <small id="lastNameHelp" class="form-text text-muted">New User Last Name.</small>
+          </div>
+          <div class="form-group">
+            <label for="emailUser">Email</label>
+            <input type="email" class="form-control" id="emailUser" name="emailUser" aria-describedby="emailUserHelp" />
+            <small id="emailUserHelp" class="form-text text-muted">New User Email.</small>
+          </div>
+          <div class="form-group">
+            <label for="passUser">Password</label>
+            <input type="password" class="form-control" id="passUser" name="passUser" aria-describedby="passUserHelp" />
+            <small id="passUserHelp" class="form-text text-muted">New User Password.</small>
+          </div>
+          <div class="form-group files">
+            <label>Image</label>
+            <input type="file" accept="image/*" class="form-control" id="imageJob" name="imageUser"
+              aria-describedby="imageUser">
+            <small id="imageHelp" class="form-text text-muted">Upload Image of New User.</small>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-4 offset-4">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+      <br />
+      {% if responseMensaje != "" %}
+      <div class="row justify-content-around">
+        <div class="col-md-6">
+          <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{ responseMensaje }}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}
